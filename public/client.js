@@ -23,5 +23,6 @@ btn.addEventListener('click', function(){
         <strong>${data.username}</strong>:${data.message}
         </p>
         `
+        console.log(data.message);
     });
 });
