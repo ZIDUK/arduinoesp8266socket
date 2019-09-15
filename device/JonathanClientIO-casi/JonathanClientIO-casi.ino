@@ -68,22 +68,19 @@ void loop() {
    
 
     if(now - messageTimestamp > 1000) {
-        messageTimestamp = now;     
-      
-        
-       
-
+        messageTimestamp = now;       
+            
         //Lectura de datos
         webSocket.on("turn_ledoff", turn_ledoff);
         webSocket.on("turn_ledon", turn_ledon);      
        
-       // read the analog in value
+        //read the analog in value
         sensorValue = analogRead(analogInPin);
 
-         //Consutruccion JSON
+        //Consutruccion JSON
         Json = "{\"Sensor\":\""+ String(sensorValue) +"\"}";
 
-         //Envio data al servidor
+        //Envio data al servidor
         webSocket.emit("sensorar", Json.c_str());
 
         // map it to the range of the PWM out
