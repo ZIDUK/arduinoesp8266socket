@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const SocketIO = require('socket.io');
 
+
+
+
 //setttings
 app.set('port', process.env.PORT || 3000);
 
@@ -32,11 +35,29 @@ io.on('connection', (socket) => {
         
     });
 
+    //Envio mensajes al arduino
+    socket.on('encender', (data)=>{
+        io.emit('turn_ledon', data);
+        console.log(data);
+    });
+    socket.on('apagar', (data)=>{
+        io.emit('turn_ledoff', data);
+        console.log(data);
+    });
+
+    //Envio mensajes al arduino
+    socket.on('apagar', (data)=>{
+        console.log(data);
+    });
+
+
+
+    //Recibo mensajes del arduino
     socket.on('connection', (data)=>{
         console.log(data);
     });
 
-    socket.on('atime', (data)=>{
+    socket.on('sensorar', (data)=>{
         console.log(data);
     });
 
@@ -45,3 +66,4 @@ io.on('connection', (socket) => {
     });
 
 })
+
