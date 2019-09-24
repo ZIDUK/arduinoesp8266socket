@@ -9,6 +9,13 @@ const SocketIO = require('socket.io');
 //setttings
 app.set('port', process.env.PORT || 3000);
 
+//ENABLE CORS
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+   });
+
 //static
 app.use(express.static(path.join(__dirname, 'public')));
 
