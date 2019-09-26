@@ -52,7 +52,8 @@ void setup() {
 
    // webSocket.on("server:chat:message", event);
     //webSocket.begin("172.20.10.13", 3000);
-    webSocket.begin("192.168.0.5", 3000);
+   // webSocket.begin("192.168.0.5", 3000);
+   webSocket.begin("https://mighty-fortress-13291.herokuapp.com/", 3000, "/socket.io/?transport=websocket");
     
     // use HTTP Basic Authorization this is optional remove if not needed
    // webSocket.setAuthorization("username", "password");
