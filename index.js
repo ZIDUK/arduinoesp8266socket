@@ -16,7 +16,6 @@ app.all('/', function(req, res, next) {
     next();
    });
 
-
 //static
 app.use(express.static(path.join(__dirname, 'public')));
 
